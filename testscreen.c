@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include "screen.h"
 #include "comm.h"
+#include "sound.h"
 
 int main(void)
 {
@@ -69,6 +70,10 @@ int main(void)
 	clearscreen();
 	printf("Colors are reset\n");
 	getchar();
+	FILE *fp = fopen("test.wav", "r");
+	WAVheader h = readwavhdr(fp);
+	fclose(fp);
+	displaywavhdr(h);
 /*
 	clearscreen();
 	setfgcolor(CYAN);
