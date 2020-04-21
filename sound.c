@@ -22,17 +22,12 @@ void displaywavhdr(WAVheader h)
 	printf("\n");
 	printf("Chunk size: %d\n", h.chunkSize);
 	printf("Number of channels: %d\n", h.numChannels);
-
-//	clearscreen();
-//	gotoXY(1,1);
-//	printf("Sample rate: %d\n", h.sampleRate);
-	//printf("Bits per sample: %d\n", h.bitsPerSample);
+	printf("Sample rate: %d\n", h.sampleRate);
+	printf("Bits per sample: %d\n", h.bitsPerSample);
 	// to be continued
-//	printf("Duration: %f seconds\n", duration);
 	double duration;
 	duration = (double)h.subchunk2Size/h.byteRate;
-
-//	printf("Number of peaks: %d\n", peaks);
+	printf("Duration: %f seconds\n", duration);
 }
 
 void wavdata(WAVheader h, FILE *fp)
