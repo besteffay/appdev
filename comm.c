@@ -6,7 +6,7 @@
 //	1) number of peaks in a piece of wav file
 //	2) max decibel value of this wav
 // then our post string should look like "peaks=2&max=78.9"
-// the url could be "http"//www.cc.puv.fi/~e1900301/php/sound.php"
+// the url could be "http://www.cc.puv.fi/~e1900301/php/sound.php"
 
 void sendpost(char *url, char *post)
 {
@@ -22,10 +22,12 @@ void sendpost(char *url, char *post)
 		res = curl_easy_perform(curl);
 		if(res != CURLE_OK)
 		{
-			fprintf(stderr, "curl_easy_perform() failed: %s\n", 
+			fprintf(stderr, "curl_easy_perform() failed: %s\n",
 				curl_easy_strerror(res));
 		}
 		curl_easy_cleanup(curl);
 	}
 	curl_global_cleanup();
 }
+
+

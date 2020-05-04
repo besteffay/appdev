@@ -5,14 +5,13 @@
 
 // constand definitions
 #define ESC 0x1B
-
-#define UNICODE		// for conditional compilation
+#define UNICODE			// for conditional compilation
 #define BAR "\u2590"
 //#define BLACK 30	insted of using #define, it's better to use ennumeration
 enum FG{BLACK=30,RED,GREEN,YELLOW,BLUE,MAGENTA,CYAN,WHITE}; 
 #define bg(c) (c+10)	// macro definition
-
 #define DEBUG 			// for conditional compilation
+
 typedef struct{			// this struct will define compound data,
 	int row;			//	which consists of the nomber of rows and
 	int col;			//	the number of columns of our screen

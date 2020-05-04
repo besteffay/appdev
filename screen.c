@@ -1,15 +1,17 @@
 // The file contains functions to manipulate screens,such as set foreground
-// color, background color, clearscreen, restore default settings, etc.
+// 	color, background color, clearscreen, restore default settings, etc.
 // To enable screen manipulations, we need to use VT100 escape sequences
-// see the link: 
-// use SHIFT_insert key to paste
+// 	see the link:
+//	https://espterm.github.io/docs/VT100%20escape%20codes.html
+// 	(use SHIFT_insert key to paste)
 
-#include <stdio.h> // for printf() function
-#include "screen.h" 
+#include <stdio.h> 			// for printf() function
+#include "screen.h"
 
 // funcrion definitions
-// a function name is an identifier in C, an identifier should start with 
-// a letter or an underscore, and followed by letters, digits, underscores
+
+// A function name is an identifier in C, an identifier should start with
+// 	a letter or an underscore, and followed by letters, digits, underscores.
 
 void setfgcolor(int fg)
 {
@@ -18,7 +20,7 @@ void setfgcolor(int fg)
 
 void clearscreen(void)
 {
-	printf("%c[2J", ESC);	//can use 27 instead of hex code
+	printf("%c[2J", ESC);		//can use 27 instead of hex code
 }
 
 void resetcolor(void)
@@ -58,7 +60,7 @@ void setcolors(int fg, int bg)
 
 void drawrect(int row, int col, int height, int width)
 {
-	int i, j;		// loop control variables
+	int i, j;				// loop control variables
 	for(i=row; i<row+height; i++)
 	{
 		for(j=col; j<col+width; j++)
@@ -78,7 +80,7 @@ Position getscreensize(void)
 {
 	// In this function we will use terminal query function to query cursor
 	//	position, the terminal should return a string back to the program
-	//	if a query "ESC[6n" is issued to the terminal
+	//	if a query "ESC[6n" is issued to the terminal.
 	Position p;
 	int r,c;				// for decoding the report string
 	char ret[100] = "\0";	// an empty string to get report

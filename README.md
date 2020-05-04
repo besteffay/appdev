@@ -40,8 +40,11 @@ List of contents
 	comm.h			contains function declarations of comm.c
 	makefile		contains a automation tool to generate target files and to 
 						clean them
+	sound.php		contains the record of the number of peaks and the maximum
+						decibel value of the test.wav file
 
 5. Copyright and licensing information
 	This app follows GPLv2 copyright.
 
-
+6. Contact information
+	If any problems arrise you may contact us at e1900301@vamk.fi

@@ -2,7 +2,9 @@
 #include <math.h>
 #include "sound.h"
 #include "screen.h"
+#include "comm.h"
 
+//#define SDEBUG
 
 // function definitions
 
@@ -80,6 +82,7 @@ void wavdata(WAVheader h, FILE *fp)
 			printf("Number of peaks: %d\n", peaks);
 			resetcolor();
 		#endif
+		sendpost(URL, DAT);
 	}
 	printf("\n\n");
 }
