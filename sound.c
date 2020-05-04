@@ -41,6 +41,9 @@ void wavdata(WAVheader h, FILE *fp)
 	short samples[SIZE];
 	int peaks=0;
 	int flag=0;
+	char datastring[120];
+	double max_dB = 0.0;
+
 	for(int i=0; i<BARS; i++)			// to read 5sec wave file, we have 40 data
 	{
 		fread(samples, sizeof(samples), 1, fp);
@@ -51,6 +54,11 @@ void wavdata(WAVheader h, FILE *fp)
 		}
 		//double dB = sqrt(sum/2000);
 		double dB = 20*log10(sqrt(sum/SIZE));
+
+		if(dB > max_dB)
+		{
+			max_dB = dB;
+		}
 
 		#ifdef SDEBUG
 			printf("dB[%d] = %f\n", i, dB);
@@ -82,7 +90,8 @@ void wavdata(WAVheader h, FILE *fp)
 			printf("Number of peaks: %d\n", peaks);
 			resetcolor();
 		#endif
-		sendpost(URL, DAT);
 	}
+	sprintf(datastring, "peaks=%d&max=%.2f", peaks, max_dB);
+	sendpost(URL, datastring);
 	printf("\n\n");
 }
